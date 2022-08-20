@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script type="text/javascript" src="http://code.jquery.com/jquery-3.3.1.min.js">
+
+</script>
+<title></title>
+<script>
+$(function(){
+	/*
+	요소:selected => select태그의 option객체중에서 선택된 태그를 가리킬때 사용하는 속성명
+	1. setTimeout(호출할 함수명 | function(){},초단위(1000)) ->1초(한번만 실행)
+	1. setInterval(호출할 함수명 | function(){},초단위(1000)) ->1초(계속,반복 실행)
+	*/
+	/* setTimeout(function(){
+		var value=$('select > option:selected').val();
+		alert(valuze);
+		console.log(value); //console(내장객체) log(출력할값)
+	},5000); //5초뒤에 선택된 항목을 화면에 출력 
+}) */
+
+	setInterval(function(){
+		var value=$('select > option:selected').val();
+		alert(value);
+		console.log(value); //console(내장객체) log(출력할값)
+	},5000); //5초뒤에 선택된 항목을 화면에 출력 
+})
+</script>
+</head>
+<body>
+	<h1>jQuery 예제</h1>
+	<select>
+		<option>화면구현</option>
+		<option>오라클</option>
+		<option>자바</option>
+		<option>JSP</option>
+		<option>Git/GitHub</option>
+		<option>JQuery</option>
+	</select>
+</body>
+</html>

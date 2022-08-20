@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script type="text/javascript" src="http://code.jquery.com/jquery-3.3.1.min.js">
+
+</script>
+<title>07.keyup.html</title>
+<script>
+$(function(){
+	/*
+		사용자가 글자를 입력했을때 발생하는 이벤트-> keyUp
+		보통 글자를 누른경우->keyDown
+		단순히 특정글자를 누른경우->keyPress(F1~F12,Alt,Ctrl,Shift)
+	*/
+	$('input').keyup(function(){
+		var value=$(this).val(); //써진글자
+		report(value);
+		//$('#console').text(value) -> 함수없이 바로 작성하는 경우
+	})
+	//버튼을 눌렀을때 input의 내용을 지우고 커서 입력
+	$('button').click(function(){
+		//1.input내용 지우기
+		$('input').val('');
+		//2.input란에 커서넣기
+		$('input').focus();
+		//3.id가 console부분에 내용을 삭제
+		$('#console').empty(); //내용을 삭제
+	})
+	
+	//사용자정의 함수->div태그에 입력받은 값을 추가시켜주는 함수
+	function report(msg){
+		$('#console').text(msg)//<->var test =  $('#console').text()
+	}
+})
+</script>
+</head>
+<body>
+	<button>reset</button>
+	<input type="text" value="val함수 연습중" size="100">
+	<div id="console"></div>
+</body>
+</html>

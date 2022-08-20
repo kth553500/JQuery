@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script type="text/javascript" src="http://code.jquery.com/jquery-3.3.1.min.js">
+
+</script>
+<title>06.$.ajax().json.html</title>
+<!-- 
+[
+  {
+   "id":"1",
+   "name":"레몬",
+   "price":"3000",
+   "description":"피로회복에 좋고 비타민C 풍부"
+  },
+  ,,,
+
+ -->
+<script>
+  $(function(){
+	  $.ajax({
+		  url:'item2.json', /* 요청문서 url속성명 */
+		  dataType:'json', /* dataType:문성종류 */
+		  success:function(data){
+			  //분리작업:파싱
+			  $('#treeData').append('<tr><td>id</td>'+'<td>name+</td>'
+					                            +'<td>price</td>'+'<td>description</td></tr>')
+				//불러올데이터가 태그덩어리->$(선택자).each(~) =>$(this)	
+				//불러올 데이터가 태그X->$.each(컬렉션객체(배열),호출해서 처리할 함수명 or 익명함수) ->this
+			  $.each(data,function(){
+				  $('#treeData').append('<tr><td>'+this.id+'</td><td>'
+						                            +this.name+'</td><td>'
+						                            +this.price+'</td><td>'
+						                            +this.description+'</td></tr>')
+			  })//each
+		  }//success
+	  })//$.ajax
+  })
+</script>
+</head>
+<body>
+	<table border="1" id="treeData"></table>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script type="text/javascript" src="http://code.jquery.com/jquery-3.3.1.min.js">
+
+</script>
+<title>04.largeimage.html</title>
+<style>
+ .small img {border:none; margin:10px; width:60px; height:60px;}
+</style>
+<script>
+  $(function(){
+	  //$('.small a').mouseover(function(){})
+	  $('.small a').hover(function(){
+		  var imgname=$(this).attr('href')
+		  //alert(imgname)  fadeIn,fadeOut->fadeTo(유지시간,투명도(0 or 1),효과완료후 처리할 함수)
+		  $('.large').fadeTo("slow",0,function(){ //서서히 안보이게 설정하고나서 0은 안보이게
+			  $('.large').attr('src',imgname)//$('.large').attr('src',$(this).attr('href'))
+		  }).fadeTo("slow",1)//서서히 눈에 보인다.(투명도 1)->새로운 이미지가 전환
+	  },function(){})
+  })
+</script>
+</head>
+<body>
+    <div class="small">
+    <a href="./img/photo1.jpg"><img src="./img/photo1.jpg"></a>
+    <a href="./img/photo2.jpg"><img src="./img/photo2.jpg"></a>
+    <a href="./img/photo3.jpg"><img src="./img/photo3.jpg"></a>
+    <a href="./img/photo4.jpg"><img src="./img/photo4.jpg"></a>
+    <a href="./img/photo5.jpg"><img src="./img/photo5.jpg"></a>
+    <a href="./img/photo6.jpg"><img src="./img/photo6.jpg"></a>
+    </div>
+    <img src="./img/photo1.jpg"  class="large">
+</body>
+</html>
+</html>

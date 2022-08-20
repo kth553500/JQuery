@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script type="text/javascript" src="http://code.jquery.com/jquery-3.3.1.min.js">
+
+</script>
+<title>01.addClass.html</title>
+<style>
+	.high_light_0 {background:yellow;font-size:30pt;color:red}
+	.high_light_1 {background:orange}
+	.high_light_2 {background:blue}
+	.high_light_3 {background:green}
+	.high_light_4 {background:red}
+</style>
+<script>
+
+$(function(){
+	  //$('h1:eq(0)').attr('class','high_light_0');
+	  /*
+	    jQuery에서 스타일을 적용
+	    css()->속성명->속성값을 부여(하나씩 부여)->css({키명:속성값;~})
+	    addClass(적용시킬 클래스명)->한꺼번에 여러개의 스타일을 동시에 설정하고 싶을때 사용
+	        <->removeClass(해제시킬 클래스명)
+	              toggleClass(적용시킬 클래스명)
+	  */
+	  //$('h1').addClass('high_light_0'); each함수를 사용하지 않아도 되는 방법
+	  $('h1').addClass(function(index){ //자바스크립트의 매개변수에서 또 다른 함수를 호출해서 리턴
+		  alert(index)                             //콜백함수계열
+		  return 'high_light_'+index;
+	  })
+
+	
+})
+//function test(){}
+</script>
+</head>
+<body>
+	<!-- <h1 class="high_light_0">Item-0</h1> -->
+	<h1>Item-0</h1>
+	<h1>Item-1</h1>
+	<h1>Item-2</h1>
+	<h1>Item-3</h1>
+	<h1>Item-4</h1>
+	
+</body>
+</html>

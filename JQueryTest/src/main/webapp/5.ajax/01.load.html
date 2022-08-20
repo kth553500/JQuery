@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script type="text/javascript" 
+           src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+<title></title>
+<script>
+  $(function(){
+	  $('#menu1').click(function(){
+		  //형식) $('선택자').load('경로포함해서 불러올 문서명')
+		  $('#message1').load('menu.html');//다 불러오는 경우
+		  return false;//a 링크기능 중지시키기 위해서
+	  })
+	  //메뉴보기1 삭제
+	  $('#menu1-1').click(function(){
+		  $('#message1').empty();
+		  return false;
+	  })
+	  //메뉴보기2=>파일을 불러올때 특정한 태그만 불러오고 싶을때 사용
+	  $('#menu2').click(function(){
+		  // 같은태그중에서 구분해서 불러올 경우 #id명->해당되는 내용
+		  //형식) $('선택자').load('경로포함해서 불러올 문서명 특정한 태그명')
+		  $('#message2').load('menu.html #news_1');
+		  //$('#message2').load('menu.html p');//p태그만 다 불러온다.
+		  return false;//a 링크기능 중지시키기 위해서
+	  })
+	  //메뉴보기2 삭제
+	  $('#menu2-1').click(function(){
+		  $('#message2').empty();
+		  return false;
+	  })
+  })
+</script>
+</head>
+<body>
+   <div>
+   		<a href="#" id="menu1">메뉴보기1</a>
+   		<a href="#" id="menu1-1">메뉴보기1 삭제</a>
+   		<span id="message1"></span>
+   </div>
+   
+   <div>
+   		<a href="#" id="menu2">메뉴보기2</a>
+   		<a href="#" id="menu2-1">메뉴보기2 삭제</a>
+   		<span id="message2"></span>
+   </div>
+   
+</body>
+</html>
+
+
+

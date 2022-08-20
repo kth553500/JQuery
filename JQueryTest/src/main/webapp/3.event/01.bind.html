@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script type="text/javascript" src="http://code.jquery.com/jquery-3.3.1.min.js">
+
+</script>
+<title>01.bind.html</title>
+<script>
+  $(function(){
+	  /*
+	  형식) window.on이벤트종류명=호출할 함수명 or function(){}
+	  형식2) window.addEventListener(이벤트종류명,실행할 함수명)
+	  형식3)$(이벤트발생 대상자 선택자).bind(등록할 이벤트종류명,함수명 또는 function(){})
+	        태그의 기본적인 기능(원래기능 (링크)->이동, 전송버튼(submit)->페이지 이동)
+	        비활성화 시키는 방법->1)함수끝에 return false를 주는 경우->매개변수 X
+	                                    2)함수를 작성하면서 event객체를 매개변수로 전달받아서
+	                                       event.preventDefault()를 호출해도 된다.
+	  */
+	  //$('a').bind('click',function(){  (1)
+	  //$('a').bind('click',function(event){//(2) ->이벤트종류명(호출할함수명 또는 function(){})
+	  $('a').click(function(event){//(2)
+		  //alert('click이벤트 처리')
+		  //$(this)->each내부의 같은 태그를 구분할때 사용,이벤트를 발생시킨 태그를 구분할때도 사용
+		  //var href=$(this).attr('href');
+		//$('선택자').attr(속성명,속성값)//값넣을떼
+		// <->$('선택자').attr(속성명) //불러올떄
+		  //alert(href);
+		  //$('img').attr('src',href);
+		  $('img').attr('src',$(this).attr('href'));
+		  //return false (1)
+		  event.preventDefault();//(2)
+	  })
+  })
+</script>
+</head>
+<body>
+	<ul><!-- 링크걸기(기본기능) -->
+		<li><a href="../picCats/Persian.jpg">Persian</a></li>
+		<li><a href="../picCats/RussianBlue.jpg">RussianBlue</a></li>
+		<li><a href="../picCats/BritishShorthairs.jpg">BritishShorthairs</a></li>
+	</ul>
+	
+</body>
+</html>

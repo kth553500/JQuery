@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script type="text/javascript" src="http://code.jquery.com/jquery-3.3.1.min.js">
+
+</script>
+<title>08.change.html</title>
+<script>
+$(function(){
+	$('#sel').change(function(event){
+		//var imgSrc=$(event.target).val();
+		//alert(imgSrc);
+		/* $('#img').attr('src',imgSrc); */
+		$('#img').attr('src', $(event.target).val());
+	})
+	
+})
+</script>
+</head>
+<body>
+	<form name="frm">
+		<table>
+			<tr>
+				<td>
+					<select id="sel">
+						<option value="../picCats/ragdoll.jpg">Ragdoll</option>
+						<option value="../picCats/MaineCoon.jpg">MaineCoon</option>
+						<option value="../picCats/Persian.jpg">Persian</option>
+					</select>
+				</td>
+				<td><img id="img"></td>
+			</tr>
+		</table>
+	</form>
+	
+</body>
+</html>

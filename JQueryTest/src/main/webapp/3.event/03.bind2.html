@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script type="text/javascript" src="http://code.jquery.com/jquery-3.3.1.min.js">
+
+</script>
+<title></title>
+<script>
+$(function(){
+	/*
+		이벤트 연결방식->2가지 차이점
+		1.bind를 사용하는 경우->현재 발생시킬 이벤트 종류뿐만 아니라 앞으로 
+										다른 이벤트도 연결이 가능(=그룹)
+									->on으로 연결시킨다.
+		2. bind를 사용X -> 단독으로 발생시킨 이벤트만 처리
+		
+	*/
+	//$('img').bind({ // <->unbind =>이벤트 연결을 해제시켜주는 함수
+	$('img').on({ // <->unbind =>이벤트 연결을 해제시켜주는 함수
+		mouseout:function(){
+			$('img').attr('src','../picCats/Persian.jpg');
+		},
+		mouseover:function(){
+			$('img').attr('src','../picCats/RussianBlue.jpg');
+		},
+		click:function(){
+			alert('bind함수를 이용한 연결테스트 입니다.');
+		}
+	})
+	/*
+	$('img').on('click',function(){}) ->bind대신에
+	$('img').mouseover(function(){})
+	$('img').mouseout(function(){})
+	$('img').click(function(){})
+	*/
+	
+})
+</script>
+</head>
+<body>
+	<img src="../picCats/Persian.jpg">
+	
+</body>
+</html>

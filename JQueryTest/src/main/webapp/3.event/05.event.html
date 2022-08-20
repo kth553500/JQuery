@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script type="text/javascript" src="http://code.jquery.com/jquery-3.3.1.min.js">
+
+</script>
+<title>05.event.html</title>
+<script>
+$(function(){
+	/*
+	event객체->이벤트를 발생시킨 객체에 대한 정보를 가지고 있는 객체
+					(클릭한 객체의 좌표값,마우스버튼 누른경우)
+	*/
+	//$('img').bind('dblclick',function(event){ //<->unbind(),
+	$('img').one('dblclick',function(event){ //<->unbind(),
+		
+		//var target=$(this) //이벤트를 발생시킨 대상자
+		var target = $(event.target);//$(this)
+		alert(target.width()+"," + target.height());
+		target.width(target.width()*2);
+		//형식2) $(이벤트발생대상자 선택자).unbind('해제시킬 이벤트 종류명')
+		//형식3) $(이벤트발생대상자 선택자).unbind()->모든 이벤트연결 해제
+		//target.unbind();//target.unbind('dblclick')
+	
+	})
+	//on()<->off()
+	$(document).on('mouseover',function(e){
+		$('.posX').text(e.pageX); //e.pageX-> x좌표값
+		$('.posY').text(e.pageY); //e.pageY-> Y좌표값
+	})
+})
+</script>
+</head>
+<body>
+	<img src="../picCats/Persian.jpg">
+	<p>x:<span class="posX">0</span></p>
+	<p>y:<span class="posY">0</span></p>
+	
+</body>
+</html>

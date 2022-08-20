@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script type="text/javascript" src="http://code.jquery.com/jquery-3.3.1.min.js">
+
+</script>
+<title>jQuery(each함수를 이용)</title>
+<style>
+	.fromjQuery0 {color:red}
+	.fromjQuery1 {color:pink}
+	.fromjQuery2 {color:blue}
+	.fromjQuery3 {color:yellow}
+</style>
+<script>
+ var i = 0; //첨자로 이용(각각의 클래스 선택자를 구분하기 위해서 사용)
+$(function(){
+	//형식)$('선택자').attr('속성명','속성값') = 태그정보.setAttribute('속성명(키명)','값(저장할값)')
+	//같은 태그를 어떻게 구분해서 스타일을 적용? 반복적으로 적용(for문)=>each함수
+	//$('li').attr('class','fromjQuery0'); <-> $('li').attr('class')(속성값)
+	
+	//형식) $('반복적으로 수행할 태그명').each(호출할 사용자정의함수명 or 익명)
+	$('li').each(forEach);
+	
+})
+//외부에 따로 함수를 만들어서 부를 목적
+function forEach(){ //각각의 서로 다른 li태그에 스타일을 다르게 설정
+	//$('li').attr('class','fromjQuery'+i); 직접적으로 태그를 같게 사용X
+	$(this).attr('class','fromjQuery'+i);
+	//$(this)=>현재 선택해서 읽어들이는 태그객체를 구분시켜주는 예약어
+	i++;
+}
+</script>
+</head>
+<body>
+
+	 <ul> <!-- 태그정보.setAttribute('속성명(키명)','값(저장할값)') -->
+		<li>jQuery each()연습</li>	
+		<li>jQuery each()연습2</li>	
+		<li>jQuery each()연습3</li>	
+		<li>jQuery each()연습4</li>	
+	</ul>
+
+	
+	<!-- <ul> (1) 정적디자인 ->디자인한 그 상태 그대로 보여주는 것
+		<li class="fromjQuery0">jQuery each()연습</li>	
+		<li>jQuery each()연습2</li>	
+		<li>jQuery each()연습3</li>	
+		<li>jQuery each()연습4</li>	
+	</ul> -->
+	
+</body>
+</html>

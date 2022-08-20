@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script type="text/javascript" 
+           src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+<title>03.$.ajax().html</title>
+<script>
+  $(function(){
+	  /*
+	  $.ajax(1.url(요청문서),2.매개변수(생략가능),3.콜백함수)
+	     aa.jsp?name='test'&age=23&addr='서울시~'
+	  */
+	  $.ajax({
+		  url:'aa2.jsp', //1.url(속성명):요청문서만 변경가능
+		                     //2.data:{변수명:값,변수명2:값2,,,}
+	      type:'get',  // type:'요청방식 (get or post($.post()와 동일한 효과))'
+		  data:{name:'test',age:23,addr:'서울시 강남구 세경빌딩 3층'},
+		  success:function(args){//3.success:콜백함수명 or function(){}
+		                                      //성공적으로 서버가 데이터를 보내준 경우 사용
+			  $('body').append(args);
+		  }
+	  })
+  })
+</script>
+</head>
+<body>
+   
+</body>
+</html>
+
+
+

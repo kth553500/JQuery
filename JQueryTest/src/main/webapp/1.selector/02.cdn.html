@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script type="text/javascript" src="http://code.jquery.com/jquery-3.3.1.min.js">
+
+</script>
+<title>02.cdn.html</title>
+<style type="text/css">
+	/* 선택자(태그){속성명:속성값;~} 
+	h1{color:red}
+	span{border:3px solid blue}
+	.my {border:5px dotted green}	*/
+	
+</style>
+<script>
+$(function(){ //ready함수->onload이벤트 대신사용
+	//형식) $(element(태그이름),id,class선택자,,,). 함수명().함수명().....
+	//chaining method방식
+	
+	//형식1) $('태그명').css('속성명','속성값')
+	$('h1').css('color','red');//h1태그를 찾아서 color속성에 red를 적용
+	$('span').css('border','3px solid blue'); //setter method느낌
+	
+	//형식2)클래스선택자-> $(태그명.클래스명)
+	$('span.my').css('border','5px dotted green'); //span태그중에서 class선택자가 my인것을 찾아서 css를 적용시킴
+	/* $('.my').css('border','5px dotted green'); //클래스선택자가 my인것만 찾아서 css적용 */
+
+	//형식3)id 선택자-> $(태그명#클래스명) =>태그명은 생략가능
+	$('#content').css('background', 'yellow');
+	
+	//형식4) 모든태그를 가리키는 예약어-> *
+	$('*').css('color','cyan');//동일한 스타일을 여러번 적용 
+	
+	//스타일 적용은 맨 마지막 한게 반영
+})
+</script>
+</head>
+<body>
+	<h1>jQuery 선택자 연습</h1>
+	<p class="my">jQuery 실습</p>
+	<div>
+		<div id="content">id값이 content인 div</div>
+	</div>
+	<span>span1</span>
+	<span class="my">span2</span>
+</body>
+</html>
